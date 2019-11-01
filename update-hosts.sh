@@ -6,5 +6,5 @@
 # https://api.nanopool.org/v1/xmr/avghashrateworkers/:address
 # lastreported
 # https://api.nanopool.org/v1/xmr/reportedhashrates/:address
-ic sl vs list | awk '{printf "%s\t%s.%s\t%s\n",$6,$2,$3,$2 }'
+ibmcloud sl vs list | awk '{printf "%s\t%s.%s\t%s\n",$6,$2,$3,$2 }'
 #ic sl vs list

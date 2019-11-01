@@ -14,10 +14,10 @@
 #for ip in 52.117.80.{70..73}; do ssh -o StrictHostKeyChecking=no -t root@${ip} 'sed -i "s/trteste/`hostname`/g" /root/stak/pools.txt; systemctl restart stak.service; systemctl status stak.service' ; done;
 #for ip in 52.117.80.{75..78}; do ssh -o StrictHostKeyChecking=no -t root@${ip} 'sed -i "s/trteste/`hostname`/g" /root/stak/pools.txt; systemctl restart stak.service; systemctl status stak.service' ; done;
 #for ip in 52.117.80.{75..78}; do ssh -o StrictHostKeyChecking=no -t root@${ip} 'sed -i "s/trteste/`hostname`/g" /root/stak/pools.txt; systemctl restart stak.service; systemctl status stak.service' ; done;
-for host in tdig{1..10}; do scp -o StrictHostKeyChecking=no reconfig.sh root@${host}:. ; done;
-for host in tdig{1..10}; do ssh -o StrictHostKeyChecking=no -t root@${host} '/root/reconfig.sh; systemctl restart stak.service; systemctl status stak.service' ; done;
-for host in twig{1..10}; do scp -o StrictHostKeyChecking=no reconfig.sh root@${host}:. ; done;
-for host in twig{1..10}; do ssh -o StrictHostKeyChecking=no -t root@${host} '/root/reconfig.sh; systemctl restart stak.service; systemctl status stak.service' ; done;
-for host in trig{1..10}; do scp -o StrictHostKeyChecking=no reconfig.sh root@${host}:. ; done;
-for host in trig{1..10}; do ssh -o StrictHostKeyChecking=no -t root@${host} '/root/reconfig.sh; systemctl restart stak.service; systemctl status stak.service' ; done;
+#for host in dig{1..20}; do scp -o StrictHostKeyChecking=no prov.sh root@${host}:/usr/bin/. ; done;
+#for host in dig{1..20}; do ssh -o StrictHostKeyChecking=no -t root@${host} '/root/prov.sh; systemctl restart stak.service; systemctl status stak.service' ; done;
+for host in dig{1..10}; do scp -o StrictHostKeyChecking=no reconfig.sh root@${host}:. ; done;
+for host in dig{1..10}; do ssh -o StrictHostKeyChecking=no -t root@${host} '/root/reconfig.sh; systemctl restart stak.service; systemctl status stak.service' ; done;
+#for host in trig{1..10}; do scp -o StrictHostKeyChecking=no reconfig.sh root@${host}:. ; done;
+#for host in trig{1..10}; do ssh -o StrictHostKeyChecking=no -t root@${host} '/root/reconfig.sh; systemctl restart stak.service; systemctl status stak.service' ; done;
 
