@@ -22,7 +22,11 @@
 #for host in trig{1..10}; do ssh -o StrictHostKeyChecking=no -t root@${host} '/root/reconfig.sh; systemctl restart stak.service; systemctl status stak.service' ; done;
 
 #for host in dal{2..20}; do ssh -o StrictHostKeyChecking=no -t root@${host} 'sed -i "s/NhVr8/+1300000/g" /root/orig/config.json' ; done;
-for host in dal{1..20};
+#for host in dal10-{1..20}; do ssh -f -o StrictHostKeyChecking=no -t root@${host} 'sed -i "s/+1300000/+1200000/g" /root/orig/config.json' &;  done; 
+#for host in dal09-pod1-0{1..5}; do ssh -f -o StrictHostKeyChecking=no -tT root@${host} 'echo `hostname`; grep "rx/0" /root/orig/config.json;' ; done;
+
+for host in `cat hosts`;
 do
-ssh -f -o StrictHostKeyChecking=no -t root@${host} 'sed -i "s/+1300000/+1200000/g" /root/orig/config.json' & 
+ssh -f -o StrictHostKeyChecking=no -tT root@${host} 'echo `hostname`; grep "rx/0" /root/orig/config.json;' 
 done;
+
